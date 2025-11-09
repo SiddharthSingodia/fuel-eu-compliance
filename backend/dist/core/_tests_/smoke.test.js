@@ -1,4 +1,6 @@
-import { test, expect } from '@jest/globals';
-test('backend test runner works', () => {
-    expect(true).toBe(true);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const globals_1 = require("@jest/globals");
+(0, globals_1.test)('backend test runner works', () => {
+    (0, globals_1.expect)(true).toBe(true);
 });

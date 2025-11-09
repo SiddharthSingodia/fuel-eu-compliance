@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/infrastructure/server/dev-server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/adapters/inbound/http/server.ts  src/infrastructure/server/dev-server.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/infrastructure/server/server.js",
     "lint": "eslint './src/**/*.{ts,tsx}' --ext .ts",
-      "test": "jest --passWithNoTests --coverage",
+    "test": "jest --passWithNoTests --coverage  --runInBand --detectOpenHandles",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name init",
     "prisma:studio": "prisma studio",
-  "seed": "ts-node src/infrastructure/seed.ts"
+    "seed": "ts-node src/infrastructure/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +20,8 @@
   "dependencies": {
     "@prisma/client": "^6.19.0",
     "express": "^5.1.0",
-    "prisma": "^6.19.0"
+    "express-validator": "^7.3.0",
+    "pg": "^8.16.3"
   },
   "devDependencies": {
     "@types/express": "^5.0.5",
@@ -32,6 +33,7 @@
     "eslint-plugin-import": "^2.32.0",
     "jest": "^30.2.0",
     "prettier": "^3.6.2",
+    "prisma": "^6.19.0",
     "supertest": "^7.1.4",
     "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",

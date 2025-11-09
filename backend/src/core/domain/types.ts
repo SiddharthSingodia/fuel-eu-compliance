@@ -18,6 +18,7 @@ export type ShipCompliance = {
   cbBeforeTonnes: number; // positive => surplus, negative => deficit (tonnes CO2e)
   cbAfterTonnes?: number;
   appliedTonnes?: number;
+  computedAt?: string;
 };
 
 export type BankEntry = {
